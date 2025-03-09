@@ -158,7 +158,11 @@ async def listen_klines():
                         topic = data["topic"]
                         start = data["data"][0]["start"]
                         if start not in kline_data[topic]:
+                            logger.info(f"{data=}")
                             await count_data(start, topic, data)
+                        else:
+                            current_data = data["data"][0]
+                            kline_data[topic][start] = current_data
             except Exception as e:
                 logger.error(f"Error processing message: {e}")
                 subscription_handler.cancel()
