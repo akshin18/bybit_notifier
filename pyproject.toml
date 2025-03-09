@@ -4,4 +4,19 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "aerich>=0.8.2",
+    "aiogram>=3.18.0",
+    "backoff>=2.2.1",
+    "loguru>=0.7.3",
+    "pydantic-settings>=2.8.1",
+    "python-dotenv>=1.0.1",
+    "tomlkit>=0.13.2",
+    "tortoise-orm>=0.24.2",
+    "websockets>=15.0.1",
+]
+
+[tool.aerich]
+tortoise_orm = "src.db.database.TORTOISE_ORM"
+location = "./migrations"
+src_folder = "./."
